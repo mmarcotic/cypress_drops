@@ -75,6 +75,17 @@ describe('Sign in site', () => {
 
     })
 
+    it('Try with duplicate email', () => {
+        cy.fixture('user_information.json').then(text => {
+            cy.fillInField(text.valid_email, 'EmaiSignup_Email')
+            cy.fillInField('1588sdawdyx', 'EmaiSignup_Password')
+            cy.fillInField(text.valid_username, 'EmaiSignup_Name')
+        })
+        cy.get('[data-testid=EmaiSignup_Submit]').click()
+        cy.contains('Incorrect username or password', { timeout: 20000 }).should('exist')
+        
+    })
+
     it('Try with valid all', () => {
         // This test case tests that the user can sign up.
         cy.fixture('user_information.json').then(text => {
