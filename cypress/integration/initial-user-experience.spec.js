@@ -18,7 +18,13 @@ describe('Initial user experience', () => {
     // After a language is selected, one or two popups appear for the user. In order to continue
     // this test case will click them off
     cy.get('[data-testid=CloseButton]').click({ multiple: true })
-
+    cy.wait(1000)
+    // Sometimes there are two popups, this should handle that as well
+    cy.get('body').then(body => {
+      if (body.find('[data-testid=CloseButton]').length > 0) {
+        cy.get('[data-testid=CloseButton]').click({ multiple: true })
+      }
+    })
   })
 
   it('Start tutorial', () => {
