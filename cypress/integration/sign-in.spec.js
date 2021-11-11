@@ -14,11 +14,29 @@ describe('Sign in site', () => {
     it('Navigate to signup screen', () => {
         // Before the test is done, it needs to be navigated to the signup screen.
         // The following does just that
+        cy.contains('Log in').click()
+        cy.contains('EMAIL').click()
+        cy.contains('Sign up').should('exist')
     })
 
     it('Try with all invalid data', () => {
         // This test case tests that the user cannot sign up with all invalid data
         // and checks the error message
+        cy.fixture('user_information.json').then(text => {
+            cy.get('[data-testid=EmaiSignup_Email]').clear()
+                .type(text.invalid_email)
+        })
+        cy.fixture('user_information.json').then(text => {
+            cy.get('[data-testid=EmaiSignup_Password]').clear()
+                .type(text.invalid_password)
+        })
+        cy.fixture('user_information.json').then(text => {
+            cy.get('[data-testid=EmaiSignup_Name]').clear()
+                .type(text.invalid_username)
+        })
+        cy.get('[data-testid=EmaiSignup_Submit]').click()
+        cy.contains('Username must be longer than 2 characters Invalid' +
+            ' email address Minimum password length is 6 symbols').should('exist')
 
     })
 
