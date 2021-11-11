@@ -20,10 +20,11 @@ I will create a test case which tests that the user can sign in legally (and tes
 
 #### Log in
 
-I will create a test case which tests that a registered user can log in, given the correct credentials
+I will create a test case which tests that a registered user can log in, when given the correct credentials, and cannot, when given the incorrect ones
 
 ------------------------------------------------
 
 For references, I have mostly used the cypress.io documentation, and in some cases, when I needed help, stackoverflow
 
 NOTE: Sorry that the initial commit is in Czech, that's just something that Visual studio did for me ☺
+NOTE2: I have had some issues with my definition of logOut(), at approximatelly 50% repro-rate, the test fails on "unhandled promise rejection" and cypress reports that it is not coming from cypress. If you run into it, please, re-run the test.
