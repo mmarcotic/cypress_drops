@@ -8,7 +8,7 @@ Cypress.Commands.add('logOut', () => {
     cy.contains('Profile').click()
     cy.get('[data-testid=Settings]').should('exist')
     cy.get('[data-testid=Settings]').click()
-    cy.contains('Currently learning').should('exist')
+    cy.contains('Log out').should('exist')
     cy.contains('Log out').click()
 
 })

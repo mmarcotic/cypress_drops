@@ -66,7 +66,7 @@ describe('Log in site', () => {
         // This test case will test that the user can log out.
         // This primarily serves the purpose of setting browser up for other tests.
         cy.logOut()
-        cy.contains('Profile').should('not.exist')
+        cy.contains('Profile', { timeout: 20000 }).should('not.exist')
         cy.wait(1000)
 
     })
