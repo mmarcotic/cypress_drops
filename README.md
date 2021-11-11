@@ -22,5 +22,8 @@ I will create a test case which tests that the user can sign in legally (and tes
 
 I will create a test case which tests that a registered user can log in, given the correct credentials
 
+------------------------------------------------
+
+For references, I have mostly used the cypress.io documentation, and in some cases, when I needed help, stackoverflow
 
 NOTE: Sorry that the initial commit is in Czech, that's just something that Visual studio did for me ☺
