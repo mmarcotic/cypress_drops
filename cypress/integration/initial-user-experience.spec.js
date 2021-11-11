@@ -11,15 +11,19 @@ describe('Initial user experience', () => {
     // and selecting a language or logging in.
     // this test case will choose the language for the user. For simplicity sake, the user will
     // choose German.
+    cy.contains('German').click()
   })
 
   it('Click off popups', () => {
     // After a language is selected, one or two popups appear for the user. In order to continue
     // this test case will click them off
+    cy.get('[data-testid=CloseButton]').click({ multiple: true })
+
   })
 
   it('Start tutorial', () => {
     // After popups are clicked off, a Start tutorial button will appear. This test case clicks it.
-
+    cy.contains('Start tutorial').click()
   })
+
 })
